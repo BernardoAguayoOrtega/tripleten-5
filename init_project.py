@@ -53,7 +53,11 @@ def main():
     "# Import necessary libraries\\n",
     "import pandas as pd\\n",
     "import plotly.express as px\\n",
-    "import streamlit as st"
+    "import streamlit as st\\n",
+    "# Read the data from CSV\\n",
+    "data = pd.read_csv('data/EPL_Soccer.csv')\\n",
+    "# Display the first few rows of the dataframe\\n",
+    "data.head()"
    ]
   }
  ],
