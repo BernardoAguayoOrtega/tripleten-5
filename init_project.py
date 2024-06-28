@@ -33,7 +33,14 @@ def main():
     install_packages(venv_name, required_packages)
     print("Packages installed successfully!")
 
+    # Create the notebooks directory if it doesn't exist
+    notebooks_dir = "notebooks"
+    if not os.path.exists(notebooks_dir):
+        os.makedirs(notebooks_dir)
+        print(f"Directory '{notebooks_dir}' created successfully!")
+
     # Create a basic notebook
+    notebook_path = os.path.join(notebooks_dir, "EDA.ipynb")
     notebook_content = """\
 {
  "cells": [
@@ -74,10 +81,10 @@ def main():
 }
 """
 
-    with open("example_notebook.ipynb", "w") as f:
+    with open(notebook_path, "w") as f:
         f.write(notebook_content)
     
-    print("Example Jupyter Notebook created successfully!")
+    print(f"Notebook '{notebook_path}' created successfully!")
 
 if __name__ == "__main__":
     main()
