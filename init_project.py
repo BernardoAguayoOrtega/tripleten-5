@@ -2,13 +2,10 @@ import os
 import subprocess
 import sys
 
-# Define the required packages
-required_packages = [
-    "pandas",
-    "plotly-express",
-    "streamlit",
-    "jupyter"
-]
+# Function to read the requirements.txt file
+def read_requirements(filename="requirements.txt"):
+    with open(filename, "r") as file:
+        return file.read().splitlines()
 
 # Function to create a virtual environment
 def create_virtualenv(venv_name):
@@ -16,7 +13,10 @@ def create_virtualenv(venv_name):
 
 # Function to install packages in the virtual environment
 def install_packages(venv_name, packages):
-    pip_executable = os.path.join(venv_name, "bin", "pip")
+    if sys.platform == "win32":
+        pip_executable = os.path.join(venv_name, "Scripts", "pip")
+    else:
+        pip_executable = os.path.join(venv_name, "bin", "pip")
     for package in packages:
         subprocess.check_call([pip_executable, "install", package])
 
@@ -27,6 +27,8 @@ def main():
     create_virtualenv(venv_name)
     print(f"Virtual environment '{venv_name}' created successfully!")
 
+    print("Reading required packages from requirements.txt...")
+    required_packages = read_requirements()
     print("Installing required packages...")
     install_packages(venv_name, required_packages)
     print("Packages installed successfully!")
