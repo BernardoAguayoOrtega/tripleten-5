@@ -84,6 +84,8 @@ La aplicación incluye varias funcionalidades para analizar y visualizar los dat
 - **Boxplot del Score por Club:** Muestra la distribución del score de los jugadores en diferentes clubes, permitiendo identificar posibles outliers y comparaciones entre equipos.
 - **Gráfico de Barras de IMC por Club:** Compara el Índice de Masa Corporal (IMC) de los jugadores entre diferentes clubes.
 
+## Despliegue
+Puedes ver la aplicación desplegada en Render [aquí](https://tripleten-bernardo-aguayo.onrender.com/).
 
 ## Contribuciones
 
